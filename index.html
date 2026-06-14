@@ -95,11 +95,9 @@
                 font-size: 12px;
             }
         
-        
-        /* BULLE D’INDICATION */
         .bulle-info {
             position: absolute;
-            top: 140px; /* ajuste si besoin */
+            top: 120px;
             left: 50%;
             transform: translateX(-50%);
             background: white;
@@ -109,13 +107,12 @@
             font-size: 22px;
             font-weight: 700;
             box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-            z-index: 20;
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.6s ease;
+            z-index: 999999; /* ULTRA PRIORITAIRE */
         }
         
-        /* PETITE FLÈCHE SOUS LA BULLE */
         .bulle-info::after {
             content: "";
             position: absolute;
@@ -128,13 +125,12 @@
             border-right: 14px solid transparent;
             border-top: 14px solid white;
         }
-
     </style>
 </head>
 
 <body>
     <div class="container">
-
+    
         <div class="bulle-info" id="bulle">
             Cliquez pour accéder à mes biens en vente !
         </div>
@@ -379,17 +375,15 @@
                 });
             });
         });
-            // Affichage de la bulle au début
     const bulle = document.getElementById("bulle");
     
     setTimeout(() => {
-        bulle.style.opacity = 1; // apparition
-    }, 800); // apparaît juste après le premier mouvement
+        bulle.style.opacity = 1;
+    }, 800);
     
     setTimeout(() => {
-        bulle.style.opacity = 0; // disparaît
-    }, 3800); // reste visible environ 3 secondes
-
+        bulle.style.opacity = 0;
+    }, 3800);
     </script>
 </body>
 </html>
