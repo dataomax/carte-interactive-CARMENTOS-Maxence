@@ -379,17 +379,30 @@
             });
         });
 
-    const bulle = document.getElementById("bulle");
+const bulle = document.getElementById("bulle");
 
-    // Apparition après le début de l’animation
-    setTimeout(() => {
-        bulle.style.opacity = 1;
-    }, 800);
+// Position automatique selon la hauteur de l'écran
+function positionnerBulle() {
+    const hauteur = window.innerHeight;
+    const position = hauteur * 0.40; // 40% de la hauteur de l'écran
+    bulle.style.top = position + "px";
+}
 
-    // Disparition automatique
-    setTimeout(() => {
-        bulle.style.opacity = 0;
-    }, 3800);
+// On positionne la bulle au chargement
+positionnerBulle();
+
+// On repositionne si l'utilisateur tourne l'écran
+window.addEventListener("resize", positionnerBulle);
+
+// Apparition / disparition
+setTimeout(() => {
+    bulle.style.opacity = 1;
+}, 800);
+
+setTimeout(() => {
+    bulle.style.opacity = 0;
+}, 3800);
+
 </script>
 </body>
 </html>
